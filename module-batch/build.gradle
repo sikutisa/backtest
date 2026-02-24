@@ -1,20 +1,9 @@
-plugins {
-    id 'java'
-}
-
-group = 'com.backtest'
-version = '0.0.1-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation project(':module-core')
+    implementation 'org.springframework.boot:spring-boot-starter-batch'
+    implementation 'org.jsoup:jsoup:1.18.1'
 }
 
-test {
-    useJUnitPlatform()
+bootJar {
+    mainClass = 'com.portfolio.backtest.batch.BatchApplication'
 }

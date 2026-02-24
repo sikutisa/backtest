@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    include: core
+  application:
+    name: backtest-api
+
+logging:
+  level:
+    root: INFO
+    com.portfolio.backtest: DEBUG

@@ -1,0 +1,18 @@
+server:
+  port: 8081
+
+spring:
+  profiles:
+    include: core
+  application:
+    name: backtest-batch
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: always
+
+logging:
+  level:
+    root: INFO
+    com.portfolio.backtest: DEBUG
