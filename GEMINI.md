@@ -81,6 +81,9 @@ The project follows a multi-module structure to ensure scalability and separatio
 - **Style:** Lombok is used for data objects (`@Data`, `@Getter`, `@Setter`, etc.) and constructors (`@RequiredArgsConstructor`).
 - **Configuration:** Main application settings are located in `src/main/resources/application.yaml`.
 
+## License
+This project is licensed under the Apache License 2.0. See the `LICENSE` file for details.
+
 ## TODO / Roadmap
 - [ ] Implement core backtesting engine in `module-core`.
 - [ ] Add data crawlers in `module-batch`.
