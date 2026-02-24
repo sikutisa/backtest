@@ -1,6 +1,6 @@
 # Portfolio Backtest Engine & Crawler
 
-A high-performance, multi-module portfolio backtesting engine and data crawler built with **Java 25** and **Spring Boot 4.0.3**.
+A portfolio backtesting backend and data crawler built with **Java 25** and **Spring Boot 4.0.3**.
 
 ## 🚀 Overview
 
