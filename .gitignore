@@ -33,5 +33,17 @@ out/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
-.vscode/
+### Security & Environment ###
+.env
+.env.*
+application-local.yml
+application-secret.yml
+*.key
+*.jks
+*.p12
+*.crt
+*.pem
+
+### OS ###
+.DS_Store
+Thumbs.db

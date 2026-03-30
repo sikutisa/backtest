@@ -20,9 +20,14 @@ This document is the **Single Source of Truth (SSoT)** for all AI agents operati
 - **Cleanliness:** Adhere strictly to project-specific coding standards (Lombok, JUnit 5).
 
 ## 🛡 2. Security & Compliance
-- **No-Secret Policy:** Never log or commit credentials. Use `.env` or system variables.
+- **No-Secret Policy:** Never log or commit credentials. Use `.env`, system variables, or Spring Cloud Config.
+- **Credential Review Process:**
+    - **Self-Audit:** Before any `git commit`, perform a `git diff --staged` to scan for keywords: `key`, `password`, `secret`, `token`, `auth`, `api_key`.
+    - **Configuration Isolation:** Sensitive values in `application.yml` MUST be replaced with placeholders (e.g., `${DB_PASSWORD}`) and documented in a `*.sample` file.
+    - **Gitignore Enforcement:** Ensure `.env`, `.idea`, `build/`, and any local-only config files are strictly tracked in `.gitignore`.
 - **Tool Restriction:** All `run_shell_command` calls must adhere to the allow-list in `.gemini/settings.json`.
 - **Harness Integrity:** Any modification to `.gemini/` or `AGENTS.md` requires explicit user confirmation.
+- **Verification:** Regularly run `git grep` for accidental leaks of sensitive patterns in the codebase.
 
 ## 🧩 3. Domain Context
 - **Root Package:** `com.portfolio.backtest`
