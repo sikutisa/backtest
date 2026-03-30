@@ -30,8 +30,8 @@ This document is the **Single Source of Truth (SSoT)** for all AI agents operati
 - **Data Source:** Primarily Jsoup-based crawlers for market data.
 
 ## 🔄 4. Self-Evolution Protocol (SEP)
-Agents are encouraged to:
-1. **Identify Patterns:** Notice recurring tasks and propose new `SKILL.md` templates.
-2. **Modularize Knowledge:** Refactor complex logic into specialized skills in `.gemini/skills/`.
-3. **Audit History:** Regularly review `AGENTS.md` and `GEMINI.md` to ensure they reflect the current architectural state.
-4. **Knowledge Sharing:** Update the `Expert Registry` whenever a new professional domain is mastered.
+- **Objectify Knowledge:** "반복되는 복잡한 워크플로우 발견 시, 즉시 `.gemini/skills/` 하위에 새로운 SOP(Standard Operating Procedure)를 생성하여 지식을 객관화하라."
+- **Identify Patterns:** Notice recurring tasks and propose new `SKILL.md` templates.
+- **Modularize Knowledge:** Refactor complex logic into specialized skills in `.gemini/skills/`.
+- **Audit History:** Regularly review `AGENTS.md` and `GEMINI.md` to ensure they reflect the current architectural state.
+- **Knowledge Sharing:** Update the `Expert Registry` whenever a new professional domain is mastered.
