@@ -1,6 +1,6 @@
 # AGENTS.md - The Sovereign Constitution of Autonomous Agents
 
-This document is the **Single Source of Truth (SSoT)** for all AI agents operating within this workspace. It defines the technical boundaries, behavioral ethics, and the evolution protocol for autonomous development.
+This document is the **Single Source of Truth (SSoT)** for all AI agents operating within this workspace. It defines the technical boundaries, behavioral ethics, and the governance protocol for autonomous development.
 
 ## 🏛 1. Strategic Context Boundaries
 
@@ -20,14 +20,10 @@ This document is the **Single Source of Truth (SSoT)** for all AI agents operati
 - **Cleanliness:** Adhere strictly to project-specific coding standards (Lombok, JUnit 5).
 
 ## 🛡 2. Security & Compliance
-- **No-Secret Policy:** Never log or commit credentials. Use `.env`, system variables, or Spring Cloud Config.
-- **Credential Review Process:**
-    - **Self-Audit:** Before any `git commit`, perform a `git diff --staged` to scan for keywords: `key`, `password`, `secret`, `token`, `auth`, `api_key`.
-    - **Configuration Isolation:** Sensitive values in `application.yml` MUST be replaced with placeholders (e.g., `${DB_PASSWORD}`) and documented in a `*.sample` file.
-    - **Gitignore Enforcement:** Ensure `.env`, `.idea`, `build/`, and any local-only config files are strictly tracked in `.gitignore`.
+All security operations MUST follow the protocols defined in `.gemini/skills/security_audit.md`.
+- **No-Secret Policy:** Zero tolerance for credential leaks.
 - **Tool Restriction:** All `run_shell_command` calls must adhere to the allow-list in `.gemini/settings.json`.
 - **Harness Integrity:** Any modification to `.gemini/` or `AGENTS.md` requires explicit user confirmation.
-- **Verification:** Regularly run `git grep` for accidental leaks of sensitive patterns in the codebase.
 
 ## 🧩 3. Domain Context
 - **Root Package:** `com.portfolio.backtest`
@@ -35,24 +31,20 @@ This document is the **Single Source of Truth (SSoT)** for all AI agents operati
 - **Data Source:** Primarily Jsoup-based crawlers for market data.
 
 ## 🔄 4. Self-Evolution Protocol (SEP)
-- **Objectify Knowledge:** "반복되는 복잡한 워크플로우 발견 시, 즉시 `.gemini/skills/` 하위에 새로운 SOP(Standard Operating Procedure)를 생성하여 지식을 객관화하라."
-- **Identify Patterns:** Notice recurring tasks and propose new `SKILL.md` templates.
-- **Modularize Knowledge:** Refactor complex logic into specialized skills in `.gemini/skills/`.
-- **Audit History:** Regularly review `AGENTS.md` and `GEMINI.md` to ensure they reflect the current architectural state.
-- **Knowledge Sharing:** Update the `Expert Registry` whenever a new professional domain is mastered.
+Continuous improvement and knowledge objectification are managed via `.gemini/skills/self_evolution.md`.
+- **Standardize**: Move recurring complex workflows into new skills.
+- **Audit**: Regularly review `AGENTS.md` and `GEMINI.md` to ensure they reflect the current architectural state.
 
-## 📊 5. Agile Governance & Issue Quality
-All autonomous tasking MUST adhere to this professional hierarchy to ensure high-fidelity implementation.
+## 📊 5. Agile Governance & High-Fidelity Tasking
+All autonomous tasking MUST adhere to the hierarchy and quality standards defined in `.gemini/skills/scrum_master_planning.md`.
 
 ### Issue Hierarchy
-- **Epic**: Strategic objective. Maps to a domain/module. Defines the "Big Picture".
-- **Feature**: A deliverable unit of value. Must include a high-level technical approach and functional scope.
-- **Task (Atomic Unit)**: The smallest unit of work. Must follow the **INVEST** principle.
-  - **Self-Contained**: Include specific package paths, class names, and method requirements.
-  - **Goal-Oriented**: Clearly state "What" is being built and "Why".
-  - **Acceptance Criteria (AC)**: Every Task MUST have a checklist of 3-5 items that define completion.
-- **Hierarchy Reference**: Tasks MUST link to Features (e.g., "Part of Feature #ID"); Features MUST link to Epics.
+- **Epic**: Strategic objective. Maps to a domain/module.
+- **Feature**: A deliverable unit of value with a high-level technical approach.
+- **Task (Atomic Unit)**: Must follow the **INVEST** principle and be "Session-Independent".
+  - **Self-Contained**: Include specific package paths, class names, and method requirements so any new session can implement it without prior context.
+  - **Acceptance Criteria (AC)**: Every Task MUST have a 3-5 item checklist for completion.
 
-### Quality Standards for Tasks
-- **Technical Specificity**: No vague descriptions. Mention exact files, annotations (e.g., `@Entity`, `@Service`), and logic constraints.
-- **Definition of Done (DoD)**: A task is only complete when it passes implementation, testing (JUnit 5), and a successful Gradle build.
+### Quality Standards
+- **Technical Specificity**: Explicitly mention files, annotations, and logic constraints.
+- **Definition of Done (DoD)**: Implementation, Unit Tests (JUnit 5), and successful Gradle build.

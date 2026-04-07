@@ -39,27 +39,33 @@ Present the proposed hierarchy in a clear table:
 | Task      | [Task Name] | [What/Why]  | Feature #ID|
 
 ### Phase 3: High-Fidelity GitHub Issue Creation
-Use `gh issue create` with the following templates. Ensure every **Task** is a "self-contained" unit of work.
+Use `gh issue create` with the following templates. Every **Task** must be "Session-Independent"—meaning a fresh AI agent session could implement it correctly using ONLY the issue description and the current codebase.
 
-#### Issue Template: Task
+#### Issue Template: Task (High-Fidelity)
 ```markdown
 ## 🎯 Goal
-[Clear description of the task's objective]
+[Clearly describe "What" and "Why". Include the business logic or technical purpose.]
 
-## 💻 Technical Requirements
+## 💻 Technical Specification (Session-Independent)
 - **Target Module**: [e.g., module-core]
-- **Implementation**: [Specific class/interface names, package paths, patterns]
-- **Dependencies**: [Other tasks or services required]
+- **Package Path**: `com.portfolio.backtest.[module].[subpackage]`
+- **Implementation Details**:
+  - Class Name: `[ExactClassName]` (if new) or existing `[ExistingClassName]`
+  - Annotations: [e.g., @Entity, @RequiredArgsConstructor, @Repository]
+  - Fields/Methods: [List specific names, types, and logic requirements]
+- **Logic Constraints**: [e.g., "Must use BigDecimal for all currency math", "Handle NullPointerException if market data is missing"]
+- **Dependencies**: [Specific other tasks or existing services/repositories required]
 
 ## ✅ Acceptance Criteria (Definition of Done)
-- [ ] Logic implemented according to technical specification
-- [ ] Unit tests (JUnit 5) implemented and passing
-- [ ] Gradle build (`./gradlew build`) successful for the module
-- [ ] [Functional AC 1]
-- [ ] [Functional AC 2]
+- [ ] Logic implemented according to the Technical Specification.
+- [ ] Unit tests (JUnit 5) implemented in `[TestPath]` and passing.
+- [ ] Gradle build (`./gradlew :[module]:build`) successful.
+- [ ] [Functional AC 1: Specific behavioral requirement]
+- [ ] [Functional AC 2: Specific behavioral requirement]
 
 ## 🔗 Relations
-Part of Feature: #FeatureID
+- **Epic**: #EpicID
+- **Feature**: #FeatureID
 ```
 
 ## 📜 Execution Rules
