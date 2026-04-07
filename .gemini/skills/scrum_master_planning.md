@@ -39,7 +39,35 @@ Present the proposed hierarchy in a clear table:
 | Task      | [Task Name] | [What/Why]  | Feature #ID|
 
 ### Phase 3: High-Fidelity GitHub Issue Creation
-Use `gh issue create` with the following templates. Every **Task** must be "Session-Independent"—meaning a fresh AI agent session could implement it correctly using ONLY the issue description and the current codebase.
+Use `gh issue create` with the following templates.
+
+#### Title Formats
+- **Epic**: `[Epic] Strategic Objective Name`
+- **Feature**: `[Feature] Deliverable Unit Name`
+- **Task**: `[Task] Specific Atomic Work Name`
+
+#### Issue Template: Epic
+```markdown
+## 🎯 Overview
+[High-level strategic goal]
+
+## 🛠 Features
+- [ ] #FeatureID1
+- [ ] #FeatureID2
+```
+
+#### Issue Template: Feature
+```markdown
+## 🎯 Functional Scope
+[What value this feature delivers]
+
+## 💻 Technical Approach
+[High-level architecture/design]
+
+## 📋 Tasks
+- [ ] #TaskID1
+- [ ] #TaskID2
+```
 
 #### Issue Template: Task (High-Fidelity)
 ```markdown
@@ -53,19 +81,14 @@ Use `gh issue create` with the following templates. Every **Task** must be "Sess
   - Class Name: `[ExactClassName]` (if new) or existing `[ExistingClassName]`
   - Annotations: [e.g., @Entity, @RequiredArgsConstructor, @Repository]
   - Fields/Methods: [List specific names, types, and logic requirements]
-- **Logic Constraints**: [e.g., "Must use BigDecimal for all currency math", "Handle NullPointerException if market data is missing"]
+- **Logic Constraints**: [Specific constraints]
 - **Dependencies**: [Specific other tasks or existing services/repositories required]
 
 ## ✅ Acceptance Criteria (Definition of Done)
 - [ ] Logic implemented according to the Technical Specification.
 - [ ] Unit tests (JUnit 5) implemented in `[TestPath]` and passing.
 - [ ] Gradle build (`./gradlew :[module]:build`) successful.
-- [ ] [Functional AC 1: Specific behavioral requirement]
-- [ ] [Functional AC 2: Specific behavioral requirement]
-
-## 🔗 Relations
-- **Epic**: #EpicID
-- **Feature**: #FeatureID
+- [ ] [Functional AC]
 ```
 
 ## 📜 Execution Rules

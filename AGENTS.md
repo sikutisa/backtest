@@ -48,3 +48,17 @@ All autonomous tasking MUST adhere to the hierarchy and quality standards define
 ### Quality Standards
 - **Technical Specificity**: Explicitly mention files, annotations, and logic constraints.
 - **Definition of Done (DoD)**: Implementation, Unit Tests (JUnit 5), and successful Gradle build.
+
+## 🚀 6. DevOps & Infrastructure
+Professional standards for the Dual-Server, Dual-Database OCI environment.
+- **Registry**: Use GitHub Container Registry (GHCR) for all Docker images.
+- **Infrastructure**:
+  - **Batch Server**: `VM.Standard.E2.1.Micro` + **Batch ATP** (Staging Data).
+  - **API Server**: `VM.Standard.E2.1.Micro` + **API ATP** (Refined Data).
+- **Deployment**:
+  - CI triggers on PR; CD triggers on Merge to `master`.
+  - Independent deployment jobs for API and Batch VMs using `appleboy/ssh-action`.
+- **Secrets Management**:
+  - `OCI_BATCH_IP`, `OCI_API_IP`: Public IPs for both instances.
+  - `BATCH_DB_URL`, `API_DB_URL`: Separate connection strings for both ATPs.
+- **Workflow**: Batch server transforms data -> Pushes to API DB -> Notifies API server via REST.

@@ -23,6 +23,12 @@
 - **Config:** Core settings in `application-core.yml`; app-specific in `application.yml`.
 - **Validation:** Always verify changes with `./gradlew build` using Java 25.
 
+## 🚀 Task State
+- [x] Initial Project Restructuring (Multi-module)
+- [x] Java 25 / Spring Boot 4.0.3 Environment Setup
+- [x] Agile Workflow Infrastructure (v1.1)
+- [x] CI/CD Infrastructure with GHCR & OCI (v1.2)
+
 ## 💡 Key Knowledge
 - Root application package is `com.portfolio.backtest`.
 - `module-api` and `module-batch` both include the `core` profile to load shared DB settings.
