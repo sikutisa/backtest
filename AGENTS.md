@@ -22,17 +22,18 @@ All tasking MUST adhere to the **Extreme Granularity** principle to minimize cod
   - Feature: `[Feature] Deliverable Unit Name`
   - Task: `[Task] Specific Atomic Work Name`
 
-## 🚀 4. Autonomous Development Workflow (10 Steps)
+## 🚀 4. Autonomous Development Workflow (11 Steps)
 1. **Receive Issue**: Issue number or objective from user.
-2. **Pre-Analysis & Fetch**: Use `github_operator` (fetch parent if sub-task).
-3. **Understand**: Analyze requirements and intent.
-4. **Root Cause (RCA)**: Use `code_explorer` for deep analysis. **[Regression Point]**
-5. **Solution Plan**: High-fidelity JSON Action Plan following senior standards.
-6. **Implementation**: `workspace_manager` (isolation) + `code_writer` (logic & tests).
-7. **Verification**: `build_validator` for local test execution.
-8. **Local Verdict**: If failure, return to [Step 4] with logs (GOTO 4).
-9. **Reflect/Push**: Commit and push to remote.
-10. **CI Monitor**: Use `github_operator`. If CI fails, return to [Step 4] (GOTO 4).
+2. **Pre-Analysis & Fetch**: Use `github_operator` to fetch the issue (and parent context).
+3. **Understand & Plan**: Use `scrum_master_planning` to break down tasks if necessary.
+4. **Environment Setup (Isolation)**: Use `workspace_manager` to create a `feature/issue-{{no}}` branch and an isolated `../worktree-{{no}}` environment. **[Mandatory Isolation Point]**
+5. **Root Cause (RCA)**: Within the worktree, use `code_explorer` for deep analysis. **[Regression Point]**
+6. **Solution Plan**: Formulate a JSON Action Plan following senior standards.
+7. **Implementation**: Use `code_writer` to apply logic and unit tests inside the worktree.
+8. **Verification**: Use `build_validator` for local test execution (`./gradlew test`).
+9. **Local Verdict**: If failure, return to [Step 5] (GOTO 5).
+10. **Reflect/Push & PR**: Commit, push to origin, and use `github_operator` to create a Pull Request.
+11. **CI Monitor & Cleanup**: Monitor CI with `github_operator`. If successful, use `workspace_manager` to cleanup. If CI fails, return to [Step 5] (GOTO 5).
 
 ## 👥 5. Sub-Agent Role Definitions
 - **Planner (Architect)**: Analysis, design, and task decomposition (`github_operator`, `code_explorer`).

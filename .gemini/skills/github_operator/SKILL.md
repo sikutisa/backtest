@@ -20,6 +20,11 @@ Creates a new issue following the senior agile granularity standards.
 - **Execution**: `gh issue create --title "{{title}}" --body "{{body}}" --label "{{labels}}"`
 - **Goal**: Decompose large features into atomic, self-contained tasks.
 
+### create_pr(issue_no, branch)
+Creates a Pull Request for a completed task, linking it to the parent issue.
+- **Execution**: `gh pr create --title "[Task] PR for #{{issue_no}}" --body "Resolves #{{issue_no}}" --base master --head {{branch}}`
+- **Goal**: Finalize the task by submitting it for review and merging.
+
 ### check_ci(branch)
 Checks the CI status for a specific branch and waits for completion if necessary.
 - **Execution**: `gh run list --branch {{branch}} --limit 1` and `gh run watch`
