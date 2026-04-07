@@ -1,0 +1,20 @@
+services:
+  oracle-xe:
+    image: gvenzl/oracle-xe:21-slim-faststart
+    container_name: oracle-xe
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_PASSWORD=oracle
+      - APP_USER=system
+      - APP_USER_PASSWORD=oracle
+    healthcheck:
+      test: ["CMD-SHELL", "echo 'exit' | sqlplus -L system/oracle@localhost:1521/xe | grep Connected"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+
+volumes:
+  oracle-data:

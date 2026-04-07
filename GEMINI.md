@@ -10,18 +10,23 @@
 - **Runtime:** Java 25 (OpenJDK)
 - **Framework:** Spring Boot 4.0.3 / Dependency Management 1.1.7
 - **Modules:** `module-core` (Domain/JPA), `module-api` (REST/Biz), `module-batch` (Jsoup/Batch)
-- **Database:** PostgreSQL (Port 5432)
+- **Database:** Oracle (Prod: ATP / Local: XE via Docker `gvenzl/oracle-xe`)
 
 ## 🗺 Module Map
-- **core**: Entity mapping (`Stock`, `DailyPrice`), JPA Repositories, DB Config.
+- **core**: Entity mapping (`Stock`, `DailyPrice`), JPA Repositories, DB Config (Oracle Dialect).
 - **api**: `ApiApplication`, REST Controllers, Backtest Service, `JdbcTemplate` for complex queries.
 - **batch**: `BatchApplication`, Spring Batch Jobs, Jsoup Crawlers, Bulk Ingestion.
 
 ## 📌 Development Conventions
 - **Package:** `com.portfolio.backtest.[module]`
 - **Patterns:** Use Lombok (`@Data`, `@RequiredArgsConstructor`), JUnit 5 for tests.
-- **Config:** Core settings in `application-core.yml`; app-specific in `application.yml`.
+- **Config:** Shared core settings in `application-local.yml` and `application-prod.yml`; app-specific in `application.yml`.
 - **Validation:** Always verify changes with `./gradlew build` using Java 25.
+
+## 🚀 Local Development (Docker)
+- **Image:** `gvenzl/oracle-xe:21-slim-faststart`
+- **Command:** `docker-compose up -d`
+- **Connection:** `jdbc:oracle:thin:@localhost:1521/xe` (system/oracle)
 
 ## 🚀 Task State
 - [x] Initial Project Restructuring (Multi-module)
@@ -32,3 +37,4 @@
 ## 💡 Key Knowledge
 - Root application package is `com.portfolio.backtest`.
 - `module-api` and `module-batch` both include the `core` profile to load shared DB settings.
+ shared DB settings.

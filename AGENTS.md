@@ -4,6 +4,7 @@ This document is the **Single Source of Truth (SSoT)** for all AI agents. It def
 
 ## 🏛 1. Strategic Context & Architecture
 - **Tech Stack:** Java 25 (OpenJDK), Spring Boot 4.0.3, Gradle (Multi-module).
+- **Database:** Oracle (Prod: ATP / Local: XE via Docker `gvenzl/oracle-xe`)
 - **Architecture:** Domain-Driven Design (DDD) with `module-core`, `module-api`, and `module-batch`.
 - **Standards:** Lombok, JUnit 5, Clean Code, SOLID.
 

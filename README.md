@@ -4,7 +4,7 @@ A portfolio backtesting backend and data crawler built with **Java 25** and **Sp
 
 ## 🚀 Overview
 
-This project is designed to crawl historical stock data from the Korea Exchange (KRX), store it in a robust PostgreSQL database, and provide a flexible engine for backtesting investment strategies. The architecture is split into specialized modules to ensure scalability and maintainability.
+This project is designed to crawl historical stock data from the Korea Exchange (KRX), store it in a robust Oracle database (Oracle ATP in production / Oracle XE in local development), and provide a flexible engine for backtesting investment strategies. The architecture is split into specialized modules to ensure scalability and maintainability.
 
 ## 🏗 Architecture
 
@@ -39,7 +39,8 @@ backtest
 
 - **Runtime:** Java 25 (OpenJDK)
 - **Framework:** Spring Boot 4.0.3 / Spring Batch / Spring Data JPA
-- **Database:** PostgreSQL (v16+)
+- **Database:** Oracle (19c/21c/23ai)
+- **Docker:** `gvenzl/oracle-xe:21-slim-faststart`
 - **Crawling:** Jsoup 1.18.3
 - **Build Tool:** Gradle 9.3+
 - **Utilities:** Lombok, JUnit 5
@@ -54,14 +55,15 @@ This project utilizes historical market data specifications provided by **KRX (K
 ## ⚙️ Configuration
 
 The project uses a hierarchical configuration approach:
-- **`module-core/src/main/resources/application-core.yml`**: Contains shared database, JPA, and logging settings.
+- **`module-core/src/main/resources/application-local.yml`**: Contains local Oracle XE settings.
+- **`module-core/src/main/resources/application-prod.yml`**: Contains production Oracle ATP settings.
 - **`module-[api|batch]/src/main/resources/application.yml`**: Contains module-specific application settings.
 
 ## 🚦 Getting Started
 
 ### Prerequisites
 - Java 25 JDK
-- PostgreSQL (Running on port `5432` by default)
+- Docker & Docker Compose (for local Oracle XE)
 
 ### Build
 To build all modules:
@@ -82,6 +84,3 @@ To build all modules:
 ## 📄 License
 
 This project is licensed under the **Apache License 2.0**. See the [LICENSE](LICENSE) file for more details.
-
-## GitHub PR Test
-This is a test of the PR creation process from the Gemini CLI.
