@@ -8,11 +8,27 @@ This skill empowers the agent to act as a professional Scrum Master, breaking do
 
 ## 🔄 Workflow SOP
 
+### Phase 0: Issue Inventory & Context Sync
+Before planning anything new, you MUST synchronize with the existing project state:
+1. **List Open Issues**: `gh issue list --limit 50` to see what's currently being tracked.
+2. **Review Parent Issues**: Check `Epic` and `Feature` issues to understand the high-level roadmap.
+3. **Identify Gaps**: Determine which parts of the technical architecture (defined in `GEMINI.md`) lack corresponding GitHub issues.
+
 ### Phase 1: Deep Discovery (Technical Analysis)
 Before creating any issues, you MUST analyze the technical requirements:
-1. **Analyze Schema**: Ask 3-5 sharp questions about data models, edge cases, and module dependencies.
-2. **Clarify Constraints**: Identify specific Spring Boot annotations, Lombok patterns, or testing requirements (JUnit 5).
-3. **Wait for Approval**: Do NOT proceed to Phase 2 until the "Technical Specification" is clear and approved.
+1. **Analyze Schema & Domain**:
+   - What are the primary fields and their types? (e.g., `BigDecimal` for prices, `LocalDate` for dates).
+   - What are the relationships? (One-to-Many, Many-to-One).
+   - Are there specific constraints (Unique, Not Null)?
+2. **Clarify Module Dependencies**:
+   - Which module will host the logic?
+   - What existing classes or utilities in `module-core` should be reused?
+3. **Edge Case Brainstorming**:
+   - How should null data or network timeouts be handled (especially for `module-batch`)?
+   - What are the validation rules for the incoming data?
+4. **Identify Project Patterns**:
+   - Check existing entities or repositories to ensure consistent styling (Lombok, Naming).
+5. **Wait for Approval**: Do NOT proceed to Phase 2 until the "Technical Specification" is clear and approved.
 
 ### Phase 2: Work Breakdown Structure (WBS)
 Present the proposed hierarchy in a clear table:
