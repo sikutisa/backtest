@@ -82,3 +82,6 @@ To build all modules:
 ## 📄 License
 
 This project is licensed under the **Apache License 2.0**. See the [LICENSE](LICENSE) file for more details.
+
+## GitHub PR Test
+This is a test of the PR creation process from the Gemini CLI.
