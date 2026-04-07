@@ -1,3 +1,8 @@
+---
+name: self_evolution
+description: Analyze and improve internal workflows and skills.
+---
+
 # Skill: Self-Evolution Protocol (SEP)
 
 This skill governs the continuous improvement of the workspace's autonomous capabilities by objectifying recurring workflows.

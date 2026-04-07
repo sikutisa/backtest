@@ -1,4 +1,10 @@
-# Skill: Security Audit & Credential Protection
+---
+name: security_audit
+description: Conduct security audits and verify secret management policies.
+---
+
+# Skill: Security Audit
+ & Credential Protection
 
 This skill provides a rigorous protocol for preventing credential leaks and ensuring codebase security.
 

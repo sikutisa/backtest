@@ -1,4 +1,10 @@
-# Skill: DevOps Pipeline Generator (OCI & GHCR)
+---
+name: devops_pipeline_generator
+description: Generate and manage CI/CD pipelines for GitHub Actions and OCI.
+---
+
+# Skill: DevOps Pipeline Generator
+ (OCI & GHCR)
 
 This skill generates high-fidelity GitHub Actions workflows for multi-module Java projects (Spring Boot) targeting GHCR and OCI environments.
 

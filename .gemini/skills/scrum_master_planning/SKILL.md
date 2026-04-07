@@ -1,4 +1,10 @@
-# Skill: Scrum Master Planning (High-Fidelity Tasking)
+---
+name: scrum_master_planning
+description: Standardize GitHub issue templates and manage Epic/Feature/Task hierarchy.
+---
+
+# Skill: Scrum Master Planning
+ (High-Fidelity Tasking)
 
 This skill empowers the agent to act as a professional Scrum Master, breaking down complex objectives into highly detailed, actionable GitHub issues.
 

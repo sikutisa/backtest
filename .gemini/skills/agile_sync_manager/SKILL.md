@@ -1,3 +1,8 @@
+---
+name: agile_sync_manager
+description: Manage the relationship between GitHub issues and provide velocity insights.
+---
+
 # Skill: Agile Sync Manager (Velocity & Auto-Sync)
 
 This skill manages the relationship between GitHub issues and provides insights into the current progress (velocity).
