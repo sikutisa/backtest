@@ -32,8 +32,13 @@ All tasking MUST adhere to the **Extreme Granularity** principle to minimize cod
 7. **Implementation**: Use `code_writer` to apply logic and unit tests inside the worktree.
 8. **Verification**: Use `build_validator` for local test execution (`./gradlew test`).
 9. **Local Verdict**: If failure, return to [Step 5] (GOTO 5).
-10. **Reflect/Push & PR**: Commit, push to origin, and use `github_operator` to create a Pull Request.
-11. **CI Monitor & Cleanup**: Monitor CI with `github_operator`. If successful, use `workspace_manager` to cleanup. If CI fails, return to [Step 5] (GOTO 5).
+10. **Reflect/Push & PR**: Commit changes to the feature branch, push to origin, and use `github_operator` to create a Pull Request. **[FINAL STEP]**
+11. **STOP & Handover**: After PR creation, you MUST stop all autonomous actions. Do NOT merge the PR, do NOT push to `master`, and do NOT close the issue manually. Wait for user review and CI feedback.
+
+## 🛡 5. Branch Safety & Governance
+- **Direct Push Prohibition**: Direct pushes to `master` or `main` are STRICTLY PROHIBITED. All changes must go through a Pull Request.
+- **Stop Condition**: An agent's task execution turn ends immediately after the `gh pr create` command.
+- **Cleanup Policy**: `workspace_manager.cleanup()` should only be invoked after the PR is successfully merged and the user issues a explicit cleanup directive.
 
 ## 👥 5. Sub-Agent Role Definitions
 - **Planner (Architect)**: Analysis, design, and task decomposition (`github_operator`, `code_explorer`).

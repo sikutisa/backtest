@@ -21,9 +21,9 @@ Creates a new issue following the senior agile granularity standards.
 - **Goal**: Decompose large features into atomic, self-contained tasks.
 
 ### create_pr(issue_no, branch)
-Creates a Pull Request for a completed task, linking it to the parent issue.
+Creates a Pull Request for a completed task, linking it to the parent issue. This is the **TERMINATION POINT** of the agent's autonomous workflow.
 - **Execution**: `gh pr create --title "[Task] PR for #{{issue_no}}" --body "Resolves #{{issue_no}}" --base master --head {{branch}}`
-- **Goal**: Finalize the task by submitting it for review and merging.
+- **Goal**: Submit the work for user review. Once this command is issued, the agent MUST stop and wait.
 
 ### check_ci(branch)
 Checks the CI status for a specific branch and waits for completion if necessary.

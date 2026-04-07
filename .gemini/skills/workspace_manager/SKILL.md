@@ -18,11 +18,12 @@ Creates an isolated worktree and a dedicated feature branch for a specific issue
 - **Goal**: Establish a clean, independent environment for the task, isolated from the main directory.
 
 ### cleanup(no)
-Removes the worktree and cleans up associated branches after work is complete and merged.
+Removes the worktree and cleans up associated branches.
+- **Protocol**: This MUST NOT be executed until the Pull Request is merged into the base branch AND the user issues a specific cleanup directive.
 - **Execution**: 
   1. `git worktree remove ../worktree-{{no}}`
-  2. `git branch -d feature/issue-{{no}}` (only after merge)
-- **Goal**: Restore the workspace to its original clean state.
+  2. `git branch -d feature/issue-{{no}}`
+- **Goal**: Restore the workspace to its original clean state after final acceptance.
 
 ## Protocol
 
