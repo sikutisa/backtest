@@ -42,7 +42,18 @@ Trigger: Manual (`workflow_dispatch`).
 5. `BATCH_DB_URL`, `BATCH_DB_USER`, `BATCH_DB_PASSWORD`: For Batch ATP.
 6. `API_DB_URL`, `API_DB_USER`, `API_DB_PASSWORD`: For API ATP.
 
-## 📜 Execution Rules
-- Always use **multi-stage Docker builds** to minimize image size.
-- Ensure the CD workflow handles **each module independently** to avoid full downtime.
-- Log failures clearly to aid in debugging.
+## 🏗 4. OCI Infrastructure & Database Architecture
+Professional standards for the Dual-Server, Dual-Database OCI environment.
+
+- **Registry**: Use GitHub Container Registry (GHCR) for all Docker images.
+- **Infrastructure**:
+  - **Batch Server**: `VM.Standard.E2.1.Micro` (AMD) + **Batch ATP** (Staging Data).
+  - **API Server**: `VM.Standard.E2.1.Micro` (AMD) + **API ATP** (Refined Data).
+- **Workflow**: 
+  1. Batch server transforms/crawls data.
+  2. Pushes to API DB (Refined table).
+  3. Notifies API server via REST to clear caches.
+
+## 🚀 5. Deployment Protocol
+- CI triggers on PR; CD triggers on Merge to `master`.
+- Independent deployment jobs for API and Batch VMs using `appleboy/ssh-action`.

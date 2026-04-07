@@ -97,7 +97,19 @@ Use `gh issue create` with the following templates.
 - [ ] [Functional AC]
 ```
 
-## 📜 Execution Rules
-1. **Be Specific**: Never use words like "some", "any", or "various". Use exact class names (e.g., `StockPriceEntity`).
-2. **Assignee**: Default to the current user (e.g., `sikutisa`).
-3. **Labels**: Always apply the corresponding label (`epic`, `feature`, or `task`).
+## 🛠 5. Extreme Agile Granularity & Decomposition Strategy
+Adhere to the principle of "Extreme Granularity" to minimize the amount of code changed per task and ensure independent context autonomy.
+
+- **Single Responsibility Principle (SRP)**: Each Task must address exactly one functional change or one bug fix.
+- **Minimalist Code Changes**: Aim for 50–100 lines of code change per Task to ensure high-quality review and testing.
+- **Decomposition Rules**:
+  - If a Feature requires more than 3 distinct test scenarios, split the scenarios into separate Tasks.
+  - Every Task title MUST follow the `[Feature-#No] Task Summary` format.
+  - Every Task body MUST include `Parent Issue: #No` at the top.
+
+## 📝 6. Mandatory Issue Structure (Self-Contained Context)
+Each issue MUST contain the following four sections to ensure it can be resolved autonomously:
+1. **[Objective]**: The single, clear goal of the task.
+2. **[Success Criteria]**: A specific checklist of scenarios to be verified by test code.
+3. **[Technical Context]**: Design patterns, architectural directions, and inherited constraints from the parent issue.
+4. **[Constraints]**: Strict limits on the scope of change to prevent side effects and keep the task atomic.
