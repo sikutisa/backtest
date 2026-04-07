@@ -17,18 +17,7 @@
       "chmod 777"
     ]
   },
-  "mcpServers": {
-    "local-infra": {
-      "command": "node",
-      "args": [
-        "infra-server.js"
-      ],
-      "env": {
-        "DOCKER_API_VERSION": "1.41"
-      },
-      "trust": false
-    }
-  },
+  "mcpServers": {},
   "tools": {
     "core": [
       "read_file",

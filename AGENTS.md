@@ -40,3 +40,19 @@ This document is the **Single Source of Truth (SSoT)** for all AI agents operati
 - **Modularize Knowledge:** Refactor complex logic into specialized skills in `.gemini/skills/`.
 - **Audit History:** Regularly review `AGENTS.md` and `GEMINI.md` to ensure they reflect the current architectural state.
 - **Knowledge Sharing:** Update the `Expert Registry` whenever a new professional domain is mastered.
+
+## 📊 5. Agile Governance & Issue Quality
+All autonomous tasking MUST adhere to this professional hierarchy to ensure high-fidelity implementation.
+
+### Issue Hierarchy
+- **Epic**: Strategic objective. Maps to a domain/module. Defines the "Big Picture".
+- **Feature**: A deliverable unit of value. Must include a high-level technical approach and functional scope.
+- **Task (Atomic Unit)**: The smallest unit of work. Must follow the **INVEST** principle.
+  - **Self-Contained**: Include specific package paths, class names, and method requirements.
+  - **Goal-Oriented**: Clearly state "What" is being built and "Why".
+  - **Acceptance Criteria (AC)**: Every Task MUST have a checklist of 3-5 items that define completion.
+- **Hierarchy Reference**: Tasks MUST link to Features (e.g., "Part of Feature #ID"); Features MUST link to Epics.
+
+### Quality Standards for Tasks
+- **Technical Specificity**: No vague descriptions. Mention exact files, annotations (e.g., `@Entity`, `@Service`), and logic constraints.
+- **Definition of Done (DoD)**: A task is only complete when it passes implementation, testing (JUnit 5), and a successful Gradle build.

@@ -27,6 +27,7 @@
 - [x] Java 25 / Spring Boot 4.0.3 Environment Setup
 - [x] Apache 2.0 License & README
 - [x] **Harness Architecture Setup (v1.0)**: AGENTS.md, GEMINI.md (updated), Security settings, Skill registry.
+- [x] **Agile Workflow Infrastructure (v1.1)**: Epic-Feature-Task hierarchy & High-Fidelity Tasking.
 - [ ] Define `Stock` & `DailyPrice` Entities (`module-core`)
 - [ ] Implement Jsoup Crawler Logic (`module-batch`)
 - [ ] Build Backtest Engine Logic (`module-api`)
