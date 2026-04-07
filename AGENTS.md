@@ -16,6 +16,10 @@ This document is the **Single Source of Truth (SSoT)** for all AI agents. It def
 All tasking MUST adhere to the **Extreme Granularity** principle to minimize code changes and maximize context autonomy.
 - **Reference:** See `.gemini/skills/scrum_master_planning.md` for issue templates and decomposition rules.
 - **Goal:** One Task = One Functional Change/Bug Fix (50-100 LOC).
+- **Title Formats:**
+  - Epic: `[Epic] Strategic Objective Name`
+  - Feature: `[Feature] Deliverable Unit Name`
+  - Task: `[Task] Specific Atomic Work Name`
 
 ## 🚀 4. Autonomous Development Workflow (10 Steps)
 1. **Receive Issue**: Issue number or objective from user.

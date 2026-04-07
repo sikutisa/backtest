@@ -104,7 +104,7 @@ Adhere to the principle of "Extreme Granularity" to minimize the amount of code 
 - **Minimalist Code Changes**: Aim for 50–100 lines of code change per Task to ensure high-quality review and testing.
 - **Decomposition Rules**:
   - If a Feature requires more than 3 distinct test scenarios, split the scenarios into separate Tasks.
-  - Every Task title MUST follow the `[Feature-#No] Task Summary` format.
+  - Every Task title MUST follow the `[Task] Task Summary` format.
   - Every Task body MUST include `Parent Issue: #No` at the top.
 
 ## 📝 6. Mandatory Issue Structure (Self-Contained Context)

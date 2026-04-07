@@ -28,7 +28,7 @@ Checks the CI status for a specific branch and waits for completion if necessary
 ## Protocol
 
 1. **Self-Contained Task Creation**: When creating sub-tasks, you MUST:
-   - Follow the title format: `[Feature-#No] Task Summary`.
+   - Follow the title format: `[Task] Task Summary`.
    - Include `Parent Issue: #No` at the very top of the body.
    - Enforce the 4-section body structure: **[Objective]**, **[Success Criteria]**, **[Technical Context]**, and **[Constraints]**.
 2. **Pre-Analysis Protocol**: Before implementing a sub-task, you MUST fetch the parent issue to extract global design goals and shared constraints that might not be in the sub-task description.
