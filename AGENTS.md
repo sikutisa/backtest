@@ -58,7 +58,21 @@ Professional standards for the Dual-Server, Dual-Database OCI environment.
 - **Deployment**:
   - CI triggers on PR; CD triggers on Merge to `master`.
   - Independent deployment jobs for API and Batch VMs using `appleboy/ssh-action`.
-- **Secrets Management**:
-  - `OCI_BATCH_IP`, `OCI_API_IP`: Public IPs for both instances.
-  - `BATCH_DB_URL`, `API_DB_URL`: Separate connection strings for both ATPs.
 - **Workflow**: Batch server transforms data -> Pushes to API DB -> Notifies API server via REST.
+
+## 🤖 7. Autonomous Development Workflow (10 Steps)
+1. **Receive Issue**: Receive an issue number from the user.
+2. **Fetch Issue**: Obtain the issue title and body using `gh issue view`.
+3. **Understand Content**: Comprehend the requirements and the intent behind the requested fix.
+4. **Root Cause Analysis [Regression Point]**: Explore the codebase to identify target files and the root cause.
+5. **Solution Plan**: Establish a JSON Action Plan including target files, logic changes, and verification methods.
+6. **Isolated Implementation**: Create a `git worktree` to perform code modifications in an isolated environment.
+7. **Feedback Loop**: Execute unit tests within the modified path and collect results.
+8. **Local Verdict**: If step 7 succeeds, proceed to step 9. If it fails, return to [Step 4: Root Cause Analysis] with error logs (GOTO 4).
+9. **Reflect/Push**: Commit changes within the worktree and push to the remote branch.
+10. **Final CI Verification**: Monitor results using `gh run watch`. If CI fails, return to [Step 4: Root Cause Analysis] with logs (GOTO 4).
+
+## 👥 8. Sub-Agent Role Definitions
+- **Planner**: Responsible for steps 2–5 (Analysis & Design); establishes the overall resolution strategy.
+- **Executor**: Responsible for steps 6 and 9 (Physical Implementation & Push); focuses on task execution within the isolated environment.
+- **Verifier**: Responsible for steps 7, 8, and 10 (Verification & Regression Verdict); judges success and provides feedback to the analysis phase if necessary.
