@@ -65,6 +65,16 @@ The project uses a hierarchical configuration approach:
 - Java 25 JDK
 - Docker & Docker Compose (for local Oracle XE)
 
+### Local Environment Setup
+1.  **Environment Variables**:
+    - Copy `.env.example` to `.env`.
+    - Fill in your actual values (e.g., `KRX_API_KEY`).
+    - `.env` is already in `.gitignore` to prevent accidental commits.
+2.  **Start Database**:
+    ```bash
+    docker-compose up -d
+    ```
+
 ### Build
 To build all modules:
 ```bash
